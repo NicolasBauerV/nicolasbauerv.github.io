@@ -1,0 +1,278 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&family=Shrikhand&display=swap");
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  font-family: "Roboto";
+  background-color: #f6f6f6;
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+    visibility: visible;
+  }
+}
+#menu {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100vw;
+  padding: 13px 1em 1em 1em;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+  z-index: 1;
+}
+#menu svg {
+  margin: 0 auto;
+}
+
+main {
+  position: relative;
+  z-index: 0;
+}
+main .hero {
+  height: 275px;
+  width: 100%;
+}
+main .hero#la-palette-du-gout {
+  background: url("../images/restaurants/jay-wennington-N_Y88TWmGwA-unsplash.jpg") no-repeat center center/cover;
+}
+main .hero#la-note-enchantee {
+  background: url("../images/restaurants/stil-u2Lp8tXIcjw-unsplash.jpg") no-repeat center center/cover;
+}
+main .hero#a-la-francaise {
+  background: url("../images/restaurants/toa-heftiba-DQKerTsQwi0-unsplash.jpg") no-repeat center center/cover;
+}
+main .hero#le-delice-des-sens {
+  background: url("../images/restaurants/louis-hansel-shotsoflouis-qNBGVyOCY8Q-unsplash.jpg") no-repeat center center/cover;
+}
+main .menu-card {
+  margin-top: -5em;
+  margin-bottom: 1.25em;
+  background-color: #f6f6f6;
+  border-radius: 30px 30px 0 0;
+  height: 100%;
+}
+main .menu-card .restaurant-header {
+  width: 100%;
+  position: relative;
+  display: flex;
+  font-family: "Shrikhand";
+  font-size: 0.8em;
+  padding-inline: 1.063em;
+  justify-content: space-between;
+  padding-top: 2em;
+  align-items: center;
+}
+main .menu-card .restaurant-header .btn-liked-container {
+  display: flex;
+  flex-direction: column;
+  height: max-content;
+  padding-right: 2.75em;
+}
+main .menu-card .restaurant-header .btn-liked-container .icon-react {
+  border: none;
+  background: linear-gradient(193.33deg, #9356dc -11.44%, #ff79da 123.93%);
+  background-clip: text;
+  transition: all 0.2s ease-out;
+}
+main .menu-card .restaurant-header .btn-liked-container .icon-react:active {
+  transform: scale(1.1);
+  cursor: pointer;
+  transition: all 0.2s ease-out;
+}
+main .menu-card .restaurant-header .btn-liked-container .icon-react label {
+  cursor: pointer;
+  display: inline-block;
+}
+main .menu-card .restaurant-header .btn-liked-container .icon-react label input[type=checkbox] {
+  display: none;
+  height: max-content;
+}
+main .menu-card .restaurant-header .btn-liked-container .icon-react label input[type=checkbox]:not(:checked) + svg path {
+  fill: url(#grad1);
+}
+main .menu-card .restaurant-header .btn-liked-container .icon-react label input[type=checkbox]:checked + svg path {
+  fill: url(#grad2);
+  stroke: none;
+}
+main .menu-card .menu-section-container {
+  opacity: 0;
+  visibility: hidden;
+  margin-top: 2.5em;
+  padding-inline: 13px;
+  height: 100%;
+  animation: fadeIn 0.5s ease-out 0.75s forwards;
+}
+main .menu-card .menu-section-container .title {
+  position: relative;
+  font-size: 1em;
+  font-weight: 300;
+  text-transform: uppercase;
+}
+main .menu-card .menu-section-container .title::after {
+  position: absolute;
+  content: "";
+  width: 40px;
+  background-color: #99e2d0;
+  height: 3px;
+  bottom: -10px;
+  left: 0;
+}
+main .card {
+  margin-top: 0.75em;
+  background-color: white;
+  display: flex;
+  overflow: hidden;
+  border-radius: 1em;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  height: 100%;
+  width: 100%;
+}
+main .card:nth-of-type(1) {
+  margin-top: 1.5em;
+}
+main .card .info-card-container {
+  padding: 1em;
+  flex: 1;
+  min-width: 0;
+}
+main .card .info-card-container .article-card-title {
+  font-weight: 500;
+  font-size: 1.125em;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+main .card .info-card-container .description {
+  position: relative;
+  margin-top: 5px;
+  display: flex;
+  justify-content: space-between;
+  overflow: hidden;
+}
+main .card .info-card-container .description > p {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+main .card .info-card-container .description > .price {
+  flex: none;
+  margin-left: 1em;
+}
+main .card .valid {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #99e2d0;
+  overflow: hidden;
+  flex: 0 0 auto;
+  transition: width 0.2s ease-in-out;
+  width: 0px;
+  border-radius: 0 1em 1em 0;
+}
+main .card .valid .fa-circle-check {
+  font-size: 1.25em;
+  color: white;
+}
+main .card:hover {
+  cursor: pointer;
+}
+main .card:hover .valid {
+  width: 80px;
+}
+main .btn-cta {
+  display: flex;
+  width: 70%;
+  justify-content: center;
+  margin: 0 auto;
+  margin-bottom: 1.25em;
+  text-decoration: none;
+  color: white;
+  font-weight: 500;
+  padding: 1em;
+  border-radius: 25px;
+  background: linear-gradient(0deg, #9356dc -11.44%, #ff79da 123.93%);
+  box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.25);
+  transition: all 0.3s ease-out;
+}
+main .btn-cta:hover {
+  box-shadow: 0px 4px 15px 0px rgba(0, 0, 0, 0.3490196078);
+  filter: brightness(115%);
+  transition: all 0.2s ease-out;
+}
+
+footer {
+  display: flex;
+  flex-flow: column wrap;
+  background-color: #353535;
+  padding: 22px 25px;
+  width: 100%;
+  height: 100%;
+}
+footer ul {
+  margin-top: 1em;
+  list-style: none;
+  display: flex;
+  flex-flow: column wrap;
+  gap: 7px;
+}
+footer ul .navlinks a {
+  display: flex;
+  gap: 11px;
+  color: white;
+  text-decoration: none;
+}
+footer ul .navlinks:nth-child(-n+2) {
+  font-weight: 500;
+}
+@media screen and (width >= 64rem) {
+  footer {
+    padding: 64px 25px 30px 25px;
+    flex-flow: row-reverse wrap;
+    align-items: center;
+    gap: 16px;
+  }
+  footer ul {
+    margin: 0;
+    flex-flow: row wrap;
+  }
+  footer ul .navlinks:nth-child(3) {
+    margin-left: 2rem;
+  }
+  footer ul .navlinks:nth-child(4) {
+    margin-right: 4rem;
+  }
+}
+
+@media screen and (width >= 64rem) {
+  #menu {
+    padding: 1em;
+  }
+  main .menu-card {
+    max-width: 1440px;
+    width: 1055px;
+    margin: 0 auto;
+    margin-top: -2.5em;
+    margin-bottom: 1.25em;
+  }
+  main .menu-card .restaurant-header {
+    justify-content: center;
+  }
+  main .menu-card .restaurant-header .btn-liked-container {
+    margin-left: 1.5em;
+  }
+  main .menu-card .menu-section-container:nth-child(n) {
+    padding-inline: 13.125em;
+  }
+  main .btn-cta {
+    width: 15%;
+  }
+}
+
+/*# sourceMappingURL=restaurant_global.css.map */
